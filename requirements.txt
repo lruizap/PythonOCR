@@ -2,4 +2,8 @@ numpy==2.0.1
 opencv-python==4.10.0.84
 packaging==24.1
 pillow==10.4.0
+PyMuPDF==1.24.9
+PyMuPDFb==1.24.9
+pyocr==0.8.5
 pytesseract==0.3.10
+Wand==0.6.13
