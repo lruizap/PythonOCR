@@ -1,0 +1,7 @@
+numpy==2.0.1
+opencv-python==4.10.0.84
+packaging==24.1
+pillow==10.4.0
+pyocr==0.8.5
+pytesseract==0.3.10
+Wand==0.6.13
