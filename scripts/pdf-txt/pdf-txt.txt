@@ -1,0 +1,306 @@
+Procesamiento del Lenguaje Natural, boletínn* 1, Julio de 1992 a
+
+Adquisición de conocimiento léxico: Acquilex.
+
+A. Ageno (1) L Castellón (1) M.A. Mart 2) F Ribas (1) G. Rigau (1)
+T Rodriguez (1) M. Taulé (2) F. Verdejo ()
+
+(1) UniversitatPolitéenica de Catalunya. Departament de LSI. Barcelona.
+(2) Universtat de Barcelona. Departament de Filologia Rominica. Barcelona
+(3) UNED Departamento de Ingeniería Electrica, Electrónica y de Control. Madrid
+
+1. Introducción.
+
+El objetivo básico del proyecto ACQUILEX es el desarollo de técnicas y métodos que
+permitan la uilización de diecionarios en soporte magnético (M.R.D, Machine Readable
+Dictionaries) n la construción de componentes léxicas para sistemas de procesamiento del
+Jenguaje namral (P.L.N).
+
+Los diecionarios automatizados constituyen una fuente de adquisición de Conocimiento
+Léxico y conceptal que, porencialmente, permite abordar algunos aspectos especialmente
+costosos de la construcción de una base de conocimiento para un sistema de P.L.N. en forma
+rápida y compeútiva. Se wata de un campo relativamente poco explorado del área de la
+Adquisición del Conocimiento, debido a la dificultad que supone el watamiento complejo de
+grandes volómenes de información y a las limitaciones de las teoríaslingúísticas que abordan
+el ema del léxico.
+
+A largo plazo el objetivo del proyecto es la construeción de una Base de Conocimientos
+léxicos multilingúe con las siguientes carateísticas:
+
++ Comtendrá Información Léxica general e independiente del dominio.
+
+() ACQUILEX es un proyecto integrado, en el que partcpan el Insttulo de Lingúísica
+Computacional de Pisa y las universidades de Amsterdam. Carridge, Dubiin y Polécnica de
+Calalurya -El proyecto esta inancado por a O.E E. a ravés del programa ESPRIT (Acción
+BRA 3030).
+
+Procesamiento del Lenguaje Natural,boletín * 12, Jlio de 1992
+
++ La Representación del Conocimiento favorecerá al máximo su reuilización.
+— Se uilzarán exclusivamente fuentes léxicas ya existentes.
+
++ Los procesos de extracción de la información léxica y de utlización de la misma por
+los diferentes sistemas de wratamiento del Lenguaje Natural serán distintos e
+
+independients.
++ Se tiizará un formato estandar de intercambio de fuentes lxicas.
+
++ Se definirá una estrucnura concepual común, ligada a los significados individuales
+de las palabras en las diferentes lenguas cubiertas y capaz de soportar un
+procesamiento del lenguaje basado en el Conocimiento.
+
+* Se incluirá un vocabulario general con información fonológica, morfológica,
+simáctica y semántico-pragmática para las diversas lenguas que forman pare del
+proyecto.
+
+Los objetivos primeros del proyecto se centran en el desarrollo de un prototipo de Base de
+Datos Léxica (L.D.B) y de Base de Conocimientos Léxica (L.K.B.) multilingúes para un
+subconjunto manejable, perosignifictivo, del vocabulario y en el desarrollo de técnicas para
+la extracción semiantomática de información léxica del diccionaro,
+
+Las etapas principales en el desarrollo del proyecto, buena parte de las cuales ya han sido
+
+cubiertas, son las si
+
+ientes:
+
+. Elaboración de un modelo computacional del diccionario que describa su
+contenido de forma que tengan expresión en él todas las característcas diferenciales
+de ls diferentes diccionarios individuales.
+
+b Descripción de los diecionarios individuales en términos del modelo.
+
+e. Definición de una LD.B. Desarrollo de software de gestión de dicha L.D.
+
+d . Carga de la información de los diccionaríos individuales en la L.D.B.
+
+Procesamiento del Lenguaje Natural, boletín n 12, Julio de 1992 45
+
+e. Derivación de una estructora conceptal común. Relaciones entre esta estructura y
+las definiciones individuales de cada diccionaro,
+
+£ Desarrollo de téenicas para la xtracción de información conceptual a partr de la
+información léxica contenida en la LD.B.
+
+£ Carga en la L.K.B, de un subconjunto significativo de la información léxica de
+los diversos diccionarios inividuales.
+
+h. Chequeo y evaluación del sistema a través de la actuación de un Sisiema de
+P.LN. cuya componente léxica se haya extrafdo de la L.K.B. El Sistema chequeará
+las dos funciones de comprensión y generación.
+
+2. Carga del MRD en la LDB.
+
+El diecionario fuente del que se parte es un texto continuado que contiene dos tipos de
+
+información: el wexto del diccionario y códigos tipográficos. El primer paso que se debe
+realizar para acceder a la información del diccionarioes la consirueción de una gramática que
+
+o anaice y segmente por entradas y cada entrada por diferentes campos que contiene.
+Ejemplo de la enrada heraldo' del dicionario Vox en cinta :
+
+EPMendo ( rncico en Kembro del
+ercio: a través el f Drl ) ME OÑicial que la
+Edad Media tena as cargotranemiemensajes, rdnar ls Mesas de
+eballra, evar ls regisros de la nobleza, s 42) 2 II
+Mensajero,adatidSEPÚ) SSa 7) 02)1
+
+TP
+
+El resultado de la gramática es una estrucura parentizada. donde la información aparece
+euiqueada.
+
+Ejemplo de la entada heraldo' del dccionario Vox en formato parentizado:
+
+Procesamiento del Lenguaje Natural boletínn* 12, Julio de 1992
+
+(Cenido)
+CETIM fncico heriad,miembro del eércos a wavés del ra)
+
+Gense 1)
+
+(CAm)
+
+«DEF Ofiialque ml Ead M tnda as argotransmir mensaes, rdnar ls fsas de caballrí, Devar
+hos rgisros de l nobleza. i)
+
+Gense
+
+(CAm)
+
+(EM fe)
+
+DEF Mensaeo,adlid)
+
+GELA D
+
+TIPOR sin)
+
+ARE Parate)
+
+»
+
+El siguiente paso es el volcado de esta estructura parentizada a la LDB. Cada entrada debe
+indiciarse para poder acceder de forma rápida a la información que contiene.
+
+Ejemplo de la enrada heraldo (1) del diecionario Voxcen formato LDB :
+
+SN
+(CAmb
+(s
+(DEF oficialque ed mediawnía cargo wansmitrmensajes
+rdnar fesal)
+IFORMA
+TETIM fdcico eal miembro ejércies a s del £
+P
+1FORM
+(mPOF]
+ME
+IRELA
+MIPOR Sia]
+TR Farae, I
+
+Procesamiento del Lenguaje Namral, boleín n* 1, Julio de 1992 a7
+
+3. Construcción de taxonomías.
+3.1. Nomenclatura.
+
+Taxonomía
+
+La taxonomíaes n paso intermedio entre la LDB y la LKB.
+
+Es una clasificación jerárquica de senidos del diccionario que están conectados entre ellos
+mediante a relación ES-UN.
+
+Raíz de taxomía Ctop')
+
+El senido que inicia la taxonomía, a partir del cual empieza la búsqueda de hipónimos.
+Terminal de taxonomía (bottom')
+
+Semido que ya no apareceen ninguna definición del diccionario como término génerico.
+Término genérico o hiperónimo
+
+Es el elemento nuclear de la definición. Indica a qué clase pertenece el objeto defnido.
+
+Hipónimo
+
+Esel sentido definido mediante un término genérico determinado.
+
+Fusión
+
+Operación de simplificación de sentidos de una entrada, se realiza cuando dos acepciones
+describen un mismo concepto o conceptos muy cercanos.
+
+Desambiguación
+
+Operación que consist en determinar a que acepción de una entrada se refiere una ocurrencia
+determinada de esa entrada
+
+Para su realización de modo semiaviomático se requiere la determinación de una serie de
+
+Procesamiento del Lenguaje Natural,boletín n* 12, Julio de 1992
+
+heuríscos.
+
+Heurísticos
+
+Implementan estrategias para la toma de decisiones allf donde no está definida ninguna
+solución algorftmica. Cada heurístco es un procedimiento que asigna una puntuación a cada
+una de las diferentes opciones que se le plantean y selecciona aquella de valoración más alta.
+3.2, Herramientas utilizadas.
+
+Adaptación y optimización del analizador morfológico SegWord (Sanfilippo).
+
+Adaptación del analizador sintáctico-semántico FPar (Ashawi).
+
+Desarrollo de SEISD (Sistema para la Extracción de Información Semántca de Diccionarios)
+para la extracción de:
+
+-elaciones semánicas entre los sentidos del diccionario VOX : uxonómicas y meronímicas,
+
+—extracción de ls 'diferentiae" (odificadores del émmino genérico).
+
+3 Proceso de construcción de 1a taxonomía.
+1- Determinación del top"y fusión de sussedos
+2.- Búsquedas en la LDB para obinertodos aquellossenids que
+- en la mismacalgoríaque e op”selccionado,
+
+USIN
+ICA(OR pl 5. mpl.m, p adj djm. adj
+
+- ineluyen n su efinición la palabra elegida como "o
+
+Procesamiento del Lenguaje Naturl, boletín n* 12, Julio de 1992 9
+
+useM
+(DEF subsancial)
+
+sN
+TCA (OR £l 5. mpl m£l Eaj aj adj
+
+3.- Anflisis morfológico y sintácuco de las deiniciones obienidas para obiener todos aquellos
+sentidos que tienen como genérico el vop' determinado.
+
+enrada
+
+abono [de abonar 1) ** 1
+
+acepción * . * Subsancia minerd u orpánica que «e
+
+atade aa ra pra lia
+
+analisis morflógico
+
+(SUBSTANCIA V N) (MINERAL ADJ N) (U CONJ N) (ORGANICA ADD) QUE CONJ) (SE PRON)
+CAÑÁDE V) (A P)(LA DET) CTERRA N) (PARA P) (FERTILIZARLA V))
+
+analisissintáctico
+
+((CLASS SUBSTANCIA) (RELATED-TO MINERAL) (PROPERTIES ORGÍNICA) (GOAL
+FERTILIZARLA))
+
+4.- Desambiguación de sentidos: asociar cada hipónimo al sentido del hiperónimo
+correspondiente
+
+$.- Repetición del proceso (puntos 2, 3 y 4) para los hipónimos obienidos y así
+sucesivamente hasta hallar los termímales de la taxonomía.
+
+4. Proyección a la LKB.
+
+'Una vez extraída la información semántica de las definiciones del diccionario, la siguiente
+etapa consiste en proyectar esta información a la LKB (Base de Conocimiento Léxico). Para
+realizar esta operación hemos desarrollado un entomo de conversión que transforma cada
+
+Procesamiento del Lenguaje Natural, boletínn* 12, Julio de 1992
+
+modo de la taxonomfa y su información semántica asociada a su correspondiente entrada léxica
+de a LEB.
+
+El lenguaje de representación de Conocimiento que empleamos está basado en la unificación
+tipada e incorpora herencia por defecto (Carpenter 1990).
+
+Actualmente, estamos diseñando la estructura de 'qualias' de los nombres, donde quedarán
+refejadas las propiedades de los conceptos.
+
+4. Referencias.
+
+LAgeno et al. 92] Ageno A., Castellón L, Maní M. A., Ribas F, Rigau G.. Rodríguez EL,
+Taulé M., Verdejo M. F. “SEISD: An environment for extraction of Semantic Information
+from on-line dicionaries.”.. Proceedings 37d Applied Natural Language Processing. Trento.
+Taly.
+
+CAlshawi 89) Alshawi l. “Analysing the dictionary definitions”. In Boguraev B., Briscoe T.
+(eds) Computarional Lexicography for NLP , chapter 7. Longman, London.
+
+[Carpenter 90] “Typed feature structures: Inheritance, (In)equacy and Extensionaly”.
+Proceedings of the First International Workshop on Inheritance in NLP, Tilburg, The
+Netherlans, pp. 9-18.
+
+[Copestake 90] Copestake A. "A Sysiem for bulding disambiguated taxonomies”. Computer
+Laboratory, University of Cambridge.
+ESPRIT BRA-3030 ACQUILEX WP NO.012
+
+(Sanfiippo 90) Sanflippo A. “A morphological Analyser for English de lalian". Computer
+Laboratory, University of Cambridge.
+ESPRIT BRA-3030 ACQUILEX WPNO. 004
+

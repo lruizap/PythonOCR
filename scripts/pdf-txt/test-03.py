@@ -1,6 +1,9 @@
 
 # PyMuPDF
 import fitz
+
+import pytesseract
+
 import os
 
 # Ruta al archivo PDF
@@ -26,3 +29,16 @@ for page_num in range(len(doc)):
 
 # Cerrar el documento
 doc.close()
+
+
+# Guardamos el texto en un fichero:
+fp = open('pdf-txt.txt', 'w+')
+for page in os.listdir("./pages-img"):
+    if page.endswith(".png"):
+        # Pasa la imagen por pytesseract
+        text = pytesseract.image_to_string(f"./pages-img/{page}", lang="spa")
+        fp.write(text)
+
+print("Documento completado!")
+
+fp.close()
