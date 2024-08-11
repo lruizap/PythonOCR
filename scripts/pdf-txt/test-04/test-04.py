@@ -15,7 +15,7 @@ def show_config():
     if len(tools) == 0:
         print("Herramienta OCR o encontrada.")
         sys.exit(1)
-    print("* Herramientas OCR disponibles en %s:", tool.get_module())
+    print("* Herramientas OCR disponibles en %s:", tools)
     for tool in tools:
         print('  - %s' % tool)
         langs = tool.get_available_languages()
@@ -28,7 +28,7 @@ tool = pyocr.get_available_tools()[0]
 lang = 'spa'
 
 # Cargamos el fichero PDF y convertimos cada una de sus páginas en una imagen JPEG (objeto blob)
-image_pdf = Image(filename="../../media/docs/jpegfile.pdf", resolution=300)
+image_pdf = Image(filename="../../../media/docs/jpegfile.pdf", resolution=300)
 
 image_jpeg = image_pdf.convert('jpeg')
 

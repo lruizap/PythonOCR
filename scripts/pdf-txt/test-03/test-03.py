@@ -7,7 +7,7 @@ import pytesseract
 import os
 
 # Ruta al archivo PDF
-pdf_path = '../../media/docs/jpegfile.pdf'
+pdf_path = '../../../media/docs/jpegfile.pdf'
 
 # Abrir el documento
 doc = fitz.open(pdf_path)
